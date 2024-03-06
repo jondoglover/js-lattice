@@ -1,7 +1,7 @@
 import graph;
 
 /**
- * This package, latticePKG, was developed for UM170. v1.1
+ * This package, latticePKG, was developed for Stanford OHS UM170. v1.1
  * @author Jonathan Sakunkoo/Technodoggo 02/05/24
  */
 
