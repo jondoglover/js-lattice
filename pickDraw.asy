@@ -3,7 +3,7 @@ import graph;
 /**
  * pickDraw is a versatile Asymptote package centered around Pick's theorem.
  Initially developed for Stanford OHS UM170. v1.2
- * @author Jonathan Sakunkoo/Technodoggo 02/05/24
+ * @author Jonathan Sakunkoo/Technodoggo 02/05/24-11/13/24
  */
 
 /**
