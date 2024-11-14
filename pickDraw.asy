@@ -4,6 +4,7 @@ import graph;
  * pickDraw is a versatile Asymptote package centered around Pick's theorem.
  Initially developed for Stanford OHS UM170. v1.2
  * @author Jonathan Sakunkoo/Technodoggo 02/05/24-11/13/24
+ https://github.com/jondoglover/pickDraw
  */
 
 /**
@@ -96,6 +97,12 @@ void poly(path p, bool dispIB=true, pen interior=blue+5, pen boundary=red+5, pat
 
 	drawGrid(minX-1, maxX+1, minY-1, maxY+1, 0);
 	draw(p,linewidth(1.5));
+
+        for (int iter2 = 0; iter2 < holes.length; iter2 += 1) {
+            path hole = holes[iter2];
+            draw(hole,linewidth(1.5));
+        }
+    
 	for (int x = minX; x <= maxX; ++x) {
 		for (int y = minY; y <= maxY; ++y) {
 			pair z = (x, y);
@@ -109,7 +116,6 @@ void poly(path p, bool dispIB=true, pen interior=blue+5, pen boundary=red+5, pat
                         int state = 0;
                         for (int iterator = 0; iterator < holes.length; iterator += 1) {
                             path hole = holes[iterator];
-                            draw(hole,linewidth(1.5));
                             if (inside(hole,z)) {
                                 if (interior(windingnumber(hole,z),currentpen)) {
                                     state = 1;
@@ -138,7 +144,8 @@ void poly(path p, bool dispIB=true, pen interior=blue+5, pen boundary=red+5, pat
 
 	if (dispIB) {
 		label("$I="+string(ns[1])+"$", (minX,minY-1.35), p=pens[1]);
-		label("$A="+string((ns[2]/2+ns[1]-1-holes.length))+"$", ((minX+maxX)/2,minY-1.35), p=5+black);
+		label("$A="+string((ns[2]/2+ns[1]-1+holes.length))+"$", ((minX+maxX)/3,minY-1.35), p=5+black);
+		label("$h="+string(holes.length)+"$", (2*(minX+maxX)/3,minY-1.35), p=5+black);
 		label("$B="+string(ns[2])+"$", (maxX,minY-1.35), p=pens[2]);
 	}
 }
